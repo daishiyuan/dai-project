@@ -1,0 +1,40 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+
+    cache: false
+    mode: HTML
+    suffix: .html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: dataSource
+    url: jdbc:mysql://150.158.46.146:3306/progect?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: progect
+    password: dai@20000403
+
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+mybatis:
+  # 配置mybatis的扫描
+  mapper-locations: classpath*:mapping/*.xml
+  type-aliases-package: com.dai.test1.model
+
+# pagehelper
+pagehelper:
+  helperDialect: PostgreSQL
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#eureka:
+#  client: #客户端注册进eureka服务列表内
+#    service-url:
+      #defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+#  instance:
+#    instance-id: microservicecloud-dept8001
+#    prefer-ip-address: true     #访问路径可以显示IP地址
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dai.test1.mapper.UserMapper">
+    <resultMap id="UserResultMap" type="com.dai.test1.model.User">
+        <!--        <result column="id" jdbcType="VARCHAR" property="id"/>-->
+        <result column="userid" property="user_id"/>
+        <result column="username" property="user_name"/>
+        <result column="userage" property="user_age"/>
+        <result column="usersex" property="user_sex"/>
+        <result column="userimage" property="user_image"/>
+        <result column="usercreattime" property="user_creattime"/>
+        <result column="userpower" property="user_power"/>
+        <result column="userphone" property="user_phone"/>
+        <result column="useremail" property="user_email"/>
+        <result column="usernumber" property="user_number"/>
+        <result column="userpassword" property="user_password"/>
+    </resultMap>
+
+
+
+    <select id="getUserinfo" resultMap="UserResultMap" parameterType="com.dai.test1.model.User">
+        select user_id,user_name,user_number,user_age,user_sex,user_image,user_creattime,user_power,user_phone,user_email from user
+        where  user_id =#{userid}
+    </select>
+    <insert id="insertuser" parameterType="com.dai.test1.model.User">
+        insert into user(user_id,user_name,user_age,user_sex,user_image,user_creattime,user_power,user_email,user_number,user_password)
+        values (#{user_id},#{user_name},#{user_age},#{user_sex},#{user_image},#{user_creattime},)
+    </insert>
+
+<!--    <insert id="insertuser" parameterType="com.thunisoft.project_demo.model.User">-->
+<!--        insert into news.user(userid, usernumber, userpwd, username, userpower)-->
+<!--        values (#{userid}, #{usernumber}, #{userpwd}, #{username}, #{userpower})-->
+<!--    </insert>-->
+
+<!--    <select id="getAllUser" resultMap="BookResultMap" parameterType="com.thunisoft.project_demo.model.User">-->
+<!--        select usernumber, username, userpower,userid-->
+<!--        from news.user-->
+<!--        where isdelete = 'n'-->
+<!--        order by userid-->
+<!--    </select>-->
+<!--    <update id="deleteUser">-->
+<!--        update news.user-->
+<!--        <set>-->
+<!--            isdelete='y'-->
+<!--        </set>-->
+<!--        where userid = #{userid}-->
+<!--    </update>-->
+
+<!--    <update id="update">-->
+<!--        update news.user-->
+<!--        <set>-->
+
+
+<!--            <if test="usernumber != null">-->
+<!--                usernumber=#{usernumber},-->
+<!--            </if>-->
+<!--            <if test="username != null">-->
+<!--                username=#{username},-->
+<!--            </if>-->
+<!--            <if test="userpower != null">-->
+<!--                userpower=#{userpower},-->
+<!--            </if>-->
+<!--            <if test="userpwd != null">-->
+<!--                userpwd=#{userpwd},-->
+<!--            </if>-->
+
+<!--        </set>-->
+<!--        where userid = #{userid}-->
+<!--    </update>-->
+
+</mapper>
